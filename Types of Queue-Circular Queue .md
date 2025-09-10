@@ -27,8 +27,48 @@ To develop a Python program that implements a Circular Queue:
 ---
 
 ## 💻 Program:
-Add Code Here
+```
+class CircularQueue:
+    def __init__(self, size):
+        self.queue = [None] * size
+        self.size = size
+        self.front = self.rear = -1
+
+    def enqueue(self, value):
+        if (self.rear + 1) % self.size == self.front:
+            print("Queue is full!")
+            return
+        if self.front == -1:
+            self.front = self.rear = 0
+        else:
+            self.rear = (self.rear + 1) % self.size
+        self.queue[self.rear] = value
+    def dequeue(self):
+        if self.front == -1:
+            print("Queue is empty!")
+            return None
+        removed = self.queue[self.front]
+        if self.front == self.rear:
+            self.front = self.rear = -1
+        else:
+            self.front = (self.front + 1) % self.size
+        return removed
+cq = CircularQueue(3)
+print("Enter 3 values for the Circular Queue:")
+for i in range(3):
+    val = input(f"Enter value {i + 1}: ")
+    cq.enqueue(val)
+removed_values = []
+for _ in range(3):
+    removed = cq.dequeue()
+    if removed is not None:
+        removed_values.append(removed)
+print("\nRemoved values from the Circular Queue:")
+print(removed_values)
+```
 
 ### Output:
+<img width="657" height="275" alt="444375562-c9b9d30a-5613-4604-94ab-11b5204a65c6" src="https://github.com/user-attachments/assets/21ce0955-e1e1-42da-b75e-8ebe98f68d34" />
 
 ## Result:
+Thus, the program has executed successfully
