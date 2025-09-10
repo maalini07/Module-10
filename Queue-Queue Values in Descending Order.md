@@ -22,7 +22,28 @@ To write a Python program to:
 7. Print the updated list.
 
 ## 🧪 Program: 
-
+```
+queue = []
+n = int(input("Enter the number of elements in the queue: "))
+for i in range(n):
+    value = int(input(f"Enter element {i + 1}: "))
+    queue.append(value)
+if len(queue) >= 2:
+    queue.pop(0)
+    queue.pop(0)
+elif len(queue) == 1:
+    queue.pop(0)
+    print("Only one element was in the queue, so it's now empty.")
+else:
+    print("The queue is empty. Nothing to remove.")
+if queue:
+    queue.sort(reverse=True)
+    print("Remaining elements in descending order:", queue)
+else:
+    print("No elements remaining in the queue.")
+```
 ### Output:
+<img width="625" height="273" alt="444374476-48083aa5-3dff-4f9d-981b-4dfaba86a24a" src="https://github.com/user-attachments/assets/e02583b1-ca4c-4068-b70c-83c6f8a2ad68" />
 
 ## Result:
+Thus, the program has executed successfully
